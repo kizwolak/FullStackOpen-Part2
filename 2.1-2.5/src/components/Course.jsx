@@ -14,6 +14,7 @@ const Course = (props) => {
     <>
       <h1>{name}</h1>
       {displayParts(parts)}
+      <b>total of {parts.reduce((acc, x) => acc + x.exercises, 0)} exercises</b>
     </>
   );
 };

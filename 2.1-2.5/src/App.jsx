@@ -20,6 +20,11 @@ const App = () => {
         exercises: 14,
         id: 3,
       },
+      {
+        name: "test",
+        exercises: 14,
+        id: 4,
+      },
     ],
   };
 
