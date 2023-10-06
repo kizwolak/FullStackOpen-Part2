@@ -10,8 +10,14 @@ const App = () => {
 
   const addPersons = (e) => {
     e.preventDefault();
-    setPersons(persons.concat({ name: newName }));
-    setNewName("");
+    const exists = persons.filter((x) => x.name === newName);
+    if (exists.length !== 0) {
+      alert(`${newName} has already been added to the phonebook.`);
+      return;
+    } else {
+      setPersons(persons.concat({ name: newName }));
+      setNewName("");
+    }
   };
 
   return (
