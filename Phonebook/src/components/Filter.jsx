@@ -16,8 +16,8 @@ const Filter = (props) => {
         }
       }
     }
-    props.setDisplayedPersons(filterResults);
-    console.log(filterResults);
+    console.log(e.target.value);
+    props.setDisplayedPersons(e.target.value === "" ? persons : filterResults);
   };
   return (
     <div>
