@@ -8,10 +8,11 @@ const App = () => {
     { name: "Dan Abramov", number: "12-43-234345", id: 3 },
     { name: "Mary Poppendieck", number: "39-23-6423122", id: 4 },
   ]);
+  const [displayedPersons, setDisplayedPersons] = useState(persons);
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
   const [filter, setFilter] = useState("");
-  const [filteredPersons, setFilteredPersons] = useState([]);
+  const [filteredPersons, setFilteredPersons] = useState(persons);
 
   const handleNameChange = (e) => {
     setNewName(e.target.value);
@@ -34,12 +35,10 @@ const App = () => {
     }
   };
 
-  const personsToShow = filter ? filteredPersons : persons;
-
   return (
     <div>
       <h2>Phonebook</h2>
-      <Filter persons={persons} />
+      <Filter persons={persons} setDisplayedPersons={setDisplayedPersons} />
       <h2>Add new</h2>
       <form>
         <div>
@@ -53,7 +52,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {personsToShow.map((x) => (
+      {displayedPersons.map((x) => (
         <p key={Math.random()}>
           {x.name} {x.number}
         </p>

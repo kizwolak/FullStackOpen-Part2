@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const Filter = (props) => {
   const persons = props.persons;
+  const [filter, setFilter] = useState("");
   const handleFilter = (e) => {
     setFilter(e.target.value);
     const filterResults = [];
@@ -15,8 +16,8 @@ const Filter = (props) => {
         }
       }
     }
+    props.setDisplayedPersons(filterResults);
     console.log(filterResults);
-    setFilteredPersons(filterResults);
   };
   return (
     <div>
@@ -25,3 +26,5 @@ const Filter = (props) => {
     </div>
   );
 };
+
+export default Filter;
