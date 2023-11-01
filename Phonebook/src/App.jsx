@@ -26,9 +26,7 @@ const App = () => {
       />
       <h2>Numbers</h2>
       {displayedPersons.map((x) => (
-        <p key={Math.random()}>
-          {x.name} {x.number}
-        </p>
+        <ContactDisplay key={x.id} id={x.id} name={x.name} number={x.number} />
       ))}
     </div>
   );

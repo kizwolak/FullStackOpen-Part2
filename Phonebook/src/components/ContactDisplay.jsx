@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const ContactDisplay = ({ name, number }) => {
+const ContactDisplay = ({ id, name, number }) => {
   return (
-    <p key={Math.random()}>
+    <p key={id}>
       {name} {number}
     </p>
   );
