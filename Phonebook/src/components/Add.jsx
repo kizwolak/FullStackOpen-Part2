@@ -33,7 +33,6 @@ const Add = (props) => {
           number: newNumber,
         })
         .then((response) => {
-          props.setPersons(props.persons.concat(response.data));
           props.setDisplayedPersons(props.persons.concat(response.data));
           setNewName("");
           setNewNumber("");

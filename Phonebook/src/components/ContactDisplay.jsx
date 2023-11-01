@@ -10,7 +10,10 @@ const ContactDisplay = ({ id, name, number, setDisplayedPersons }) => {
       <button
         onClick={() => {
           phonebook.deleteEntry(id);
-          setDisplayedPersons(phonebook.getAll());
+          console.log(phonebook.getAll());
+          phonebook
+            .getAll()
+            .then((response) => setDisplayedPersons(response.data));
         }}
       >
         Delete

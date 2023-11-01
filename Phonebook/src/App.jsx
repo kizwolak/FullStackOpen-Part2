@@ -19,11 +19,7 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <Filter persons={persons} setDisplayedPersons={setDisplayedPersons} />
-      <Add
-        persons={persons}
-        setPersons={setPersons}
-        setDisplayedPersons={setDisplayedPersons}
-      />
+      <Add persons={persons} setDisplayedPersons={setDisplayedPersons} />
       <h2>Numbers</h2>
       {displayedPersons.map((x) => (
         <ContactDisplay
