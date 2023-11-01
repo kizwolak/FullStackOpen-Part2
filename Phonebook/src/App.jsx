@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Filter from "./components/Filter";
 import Add from "./components/Add";
 import axios from "axios";
+import ContactDisplay from "./components/ContactDisplay";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
