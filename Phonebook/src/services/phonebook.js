@@ -13,8 +13,15 @@ const update = (id, newObject) => {
   return axios.put(`${baseUrl}/${id}`, newObject);
 };
 
+const deleteEntry = (id) => {
+  if (window.confirm("Do you really want to delete this record?")) {
+    return axios.delete(`${baseUrl}/${id}`);
+  } else return;
+};
+
 export default {
   getAll,
   create,
   update,
+  deleteEntry,
 };
