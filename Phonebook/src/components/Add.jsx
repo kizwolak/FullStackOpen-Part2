@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const Add = (props) => {
   const [newName, setNewName] = useState("");
@@ -18,14 +19,17 @@ const Add = (props) => {
       alert(`${newName} has already been added to the phonebook.`);
       return;
     } else {
-      props.setPersons(
-        props.persons.concat({ name: newName, number: newNumber })
-      );
-      props.setDisplayedPersons(
-        props.persons.concat({ name: newName, number: newNumber })
-      );
-      setNewName("");
-      setNewNumber("");
+      axios
+        .post("http://localhost:3001/persons", {
+          name: newName,
+          number: newNumber,
+        })
+        .then((response) => {
+          props.setPersons(props.persons.concat(response.data));
+          props.setDisplayedPersons(props.persons.concat(response.data));
+          setNewName("");
+          setNewNumber("");
+        });
     }
   };
 
