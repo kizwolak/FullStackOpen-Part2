@@ -26,7 +26,13 @@ const App = () => {
       />
       <h2>Numbers</h2>
       {displayedPersons.map((x) => (
-        <ContactDisplay key={x.id} id={x.id} name={x.name} number={x.number} />
+        <ContactDisplay
+          key={x.id}
+          id={x.id}
+          name={x.name}
+          number={x.number}
+          setDisplayedPersons={setDisplayedPersons}
+        />
       ))}
     </div>
   );

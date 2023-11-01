@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import phonebook from "../services/phonebook";
 
 const Add = (props) => {
   const [newName, setNewName] = useState("");
@@ -16,8 +17,13 @@ const Add = (props) => {
     e.preventDefault();
     const exists = props.persons.filter((x) => x.name === newName);
     if (exists.length !== 0) {
-      alert(`${newName} has already been added to the phonebook.`);
-      return;
+      if (
+        confirm(
+          `${newName} has already been added to the phonebook. Would you like to update the record?`
+        )
+      ) {
+        phonebook.update(exists[0].id, { , newNumber });
+      }
     } else {
       axios
         .post("http://localhost:3001/persons", {

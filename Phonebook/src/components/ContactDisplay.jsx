@@ -1,13 +1,20 @@
 import { useState } from "react";
 import phonebook from "../services/phonebook";
 
-const ContactDisplay = ({ id, name, number }) => {
+const ContactDisplay = ({ id, name, number, setDisplayedPersons }) => {
   return (
     <div style={{ display: "flex" }}>
       <p key={id}>
         {name} {number}
       </p>
-      <button onClick={() => phonebook.deleteEntry(id)}>Delete</button>
+      <button
+        onClick={() => {
+          phonebook.deleteEntry(id);
+          setDisplayedPersons(phonebook.getAll());
+        }}
+      >
+        Delete
+      </button>
     </div>
   );
 };
