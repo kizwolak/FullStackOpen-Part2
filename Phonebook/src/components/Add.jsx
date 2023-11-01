@@ -22,7 +22,9 @@ const Add = (props) => {
           `${newName} has already been added to the phonebook. Would you like to update the record?`
         )
       ) {
-        phonebook.update(exists[0].id, { , newNumber });
+        const name = newName;
+        const number = newNumber;
+        phonebook.update(exists[0].id, { name, number });
       }
     } else {
       axios

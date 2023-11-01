@@ -21,8 +21,8 @@
       "id": 4
     },
     {
-      "newName": "test",
-      "newNumber": "234",
+      "name": "test",
+      "number": "234",
       "id": 5
     }
   ]
